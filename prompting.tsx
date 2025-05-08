@@ -3,16 +3,16 @@
 import { useEffect, useRef, useState } from "react"
 import { useMobile } from "@/hooks/use-mobile"
 
-const COLOR = "#FFFFFF" // Text color - keeping white
-const HIT_COLOR = "#9CA3AF" // Changed to gray from purple
-const BACKGROUND_COLOR = "#0A0A0A" // Premium black background
-const BALL_COLOR = "#FFFFFF" // Ball color - keeping white
-const PADDLE_COLOR = "#6B7280" // Changed to darker gray from purple
+const COLOR = "#FFFFFF" 
+const HIT_COLOR = "#9CA3AF" 
+const BACKGROUND_COLOR = "#0A0A0A"
+const BALL_COLOR = "#FFFFFF" 
+const PADDLE_COLOR = "#6B7280" 
 const LETTER_SPACING = 1
 const WORD_SPACING = 3
-const BALL_SIZE_FACTOR = 1.5 // Controls how big the ball is
-const PARTICLE_COUNT = 8 // Number of particles when hitting pixels
-const PARTICLE_LIFETIME = 30 // How long particles last in frames
+const BALL_SIZE_FACTOR = 1.5 
+const PARTICLE_COUNT = 8 
+const PARTICLE_LIFETIME = 30 
 
 const PIXEL_MAP = {
   P: [
