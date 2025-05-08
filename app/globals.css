@@ -14,6 +14,55 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  /* Prevent pull-to-refresh on mobile */
+  overscroll-behavior-y: none;
+  /* Use a more accurate height calculation */
+  height: 100%;
+  min-height: 100vh;
+  /* Fix for iOS Safari */
+  min-height: -webkit-fill-available;
+  /* Enable smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Use CSS variables for viewport height */
+:root {
+  --vh: 1vh;
+}
+
+/* Apply custom viewport height where needed */
+.h-screen {
+  height: 100vh; /* Fallback */
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+html {
+  height: 100%;
+  /* Fix for iOS Safari */
+  height: -webkit-fill-available;
+  /* Enable smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Snap scrolling for card slider effect */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @layer utilities {
@@ -101,4 +150,30 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Animation for scroll-triggered elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Hide scrollbar but allow scrolling */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
