@@ -28,10 +28,8 @@ export const projects = [
     "title-color": "white",
     "background-color": "black",
     "image-below-padding": 0,
-    img1: "/og-image.png",
-    img2: "/og-image.png",
-    img3: "/og-image.png",
-    img4: "/og-image.png",
+    img1: "/dsat-branding.png",
+
   },
   {
     "client-url": "dsat",
@@ -128,7 +126,7 @@ const clientsData: Client[] = [
         id: "branding",
         name: "Branding",
         description: "DSAT School Branding Project",
-        images: [{ src: "/og-image.png", alt: "DSAT School Branding" }],
+        images: [{ src: "/dsat-branding.png", alt: "DSAT School Branding" }],
         tags: ["branding", "design"],
       },
     ],
