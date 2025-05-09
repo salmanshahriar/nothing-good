@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
+import LoadingSpinner from "./loading-spinner"
 
 interface ImageLightboxProps {
   images: string[]
@@ -12,6 +13,20 @@ interface ImageLightboxProps {
 
 export default function ImageLightbox({ images, titleColor, imagePadding }: ImageLightboxProps) {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  // Add a timeout to prevent infinite loading
+  useEffect(() => {
+    // Start loading
+    setIsLoading(true)
+
+    // Set a loading time of 1.5 seconds - this gives a consistent experience
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+
+    return () => clearTimeout(timeoutId)
+  }, [images])
 
   const openLightbox = (index: number) => {
     setSelectedImageIndex(index)
@@ -31,6 +46,10 @@ export default function ImageLightbox({ images, titleColor, imagePadding }: Imag
     setSelectedImageIndex((selectedImageIndex - 1 + images.length) % images.length)
   }
 
+  if (isLoading) {
+    return <LoadingSpinner />
+  }
+
   return (
     <>
       <div className="flex flex-col">
@@ -47,6 +66,7 @@ export default function ImageLightbox({ images, titleColor, imagePadding }: Imag
               width={1200}
               height={630}
               className="w-full h-auto"
+              priority={index < 2} // Prioritize loading the first two images
             />
           </div>
         ))}

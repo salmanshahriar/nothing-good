@@ -1,9 +1,27 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { getAllProjects, getProjectImages } from "@/config/projects"
+import LoadingSpinner from "@/components/loading-spinner"
 
 export default function WorkPage() {
   const allProjects = getAllProjects()
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Set a consistent loading time for a smooth experience
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 1500)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (loading) {
+    return <LoadingSpinner />
+  }
 
   return (
     <div className="container mx-auto px-4 py-12">
