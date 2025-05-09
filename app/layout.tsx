@@ -66,8 +66,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   icons: {
-    icon: [{ url: "/apple-touch-icon.png" }],
-    apple: [{ url: "/apple-touch-icon.png" }],
+    icon: [{ url: "/favicon.ico" }]
   },
   robots: {
     index: true,
