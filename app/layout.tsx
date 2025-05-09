@@ -65,6 +65,10 @@ export const metadata: Metadata = {
     creator: "@salmanshahriar",
     images: ["/og-image.png"],
   },
+  icons: {
+    icon: [{ url: "/apple-touch-icon.png" }],
+    apple: [{ url: "/apple-touch-icon.png" }],
+  },
   robots: {
     index: true,
     follow: true,
@@ -75,9 +79,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: "verification_token",
   },
     generator: 'v0.dev'
 }
@@ -91,8 +92,9 @@ export default function RootLayout({
     <html lang="en" className={inter.className}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/apple-touch-icon.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#000000" />
       </head>
       <body>
         {children}

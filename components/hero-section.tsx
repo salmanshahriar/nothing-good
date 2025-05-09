@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react"
 import { useMobile } from "@/hooks/use-mobile"
 
 const COLOR = "#FFFFFF"
-const HIT_COLOR = "#9CA3AF"
+const HIT_COLOR = "#9CA3AF" // Changed from gray to white
 const BACKGROUND_COLOR = "#0A0A0A"
 const BALL_COLOR = "#FFFFFF"
-const PADDLE_COLOR = "#6B7280"
+const PADDLE_COLOR = "#FFFFFF" // Changed from gray to white
 const LETTER_SPACING = 1
 const WORD_SPACING = 3
 const BALL_SIZE_FACTOR = 1.5
@@ -413,7 +413,7 @@ export function HeroSection() {
     }
 
     const createParticles = (x: number, y: number) => {
-      const colors = ["#FFFFFF", "#E5E7EB", "#9CA3AF", "#D1D5DB"]
+      const colors = ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"] // Changed all particle colors to white
 
       for (let i = 0; i < PARTICLE_COUNT; i++) {
         const angle = Math.random() * Math.PI * 2
@@ -546,7 +546,7 @@ export function HeroSection() {
       })
       ctx.globalAlpha = 1
 
-      ctx.fillStyle = "rgba(255, 255, 255, 0.3)"
+      ctx.fillStyle = "rgba(255, 255, 255, 0.3)" // Kept as semi-transparent white
       ctx.beginPath()
       ctx.arc(ballRef.current.x, ballRef.current.y, ballRef.current.radius * 1.3, 0, Math.PI * 2)
       ctx.fill()
@@ -605,8 +605,25 @@ export function HeroSection() {
         aria-label="Salman Shahriar: Frontend Developer - Interactive Portfolio"
       />
       {isMobile && (
-        <div className="absolute bottom-8 left-0 right-0 text-center text-white py-2 px-4 mx-4 rounded-lg z-20 text-sm drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-          <p>Scroll to explore</p>
+        <div className="absolute bottom-8 left-0 right-0 text-center z-20">
+          <div className="inline-flex flex-col items-center animate-fade-in-out">
+            <p className="text-white text-sm mb-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Scroll to explore</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-white animate-float drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]"
+              aria-hidden="true"
+            >
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </div>
         </div>
       )}
     </header>

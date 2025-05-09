@@ -81,11 +81,8 @@ export function PromptingIsAllYouNeed() {
       </div>
 
       {/* Navigation dots for section indication */}
-      <nav
-        className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 hidden md:block"
-        aria-label="Section navigation"
-      >
-        <ul className="flex flex-col space-y-4">
+      <nav className="fixed z-50 right-6 bottom-16 md:right-8 md:bottom-16" aria-label="Section navigation">
+        <ul className="flex flex-col space-y-3 md:space-y-4">
           <li>
             <button
               onClick={() => {
@@ -97,9 +94,9 @@ export function PromptingIsAllYouNeed() {
                   })
                 }
               }}
-              className={`block w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`block w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                 activeSection === "hero"
-                  ? "bg-white scale-125 border-white"
+                  ? "bg-white scale-110 md:scale-125 border-white"
                   : activeSection === "about"
                     ? "bg-transparent border border-black"
                     : "bg-transparent border border-white"
@@ -120,9 +117,9 @@ export function PromptingIsAllYouNeed() {
                   })
                 }
               }}
-              className={`block w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`block w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                 activeSection === "about"
-                  ? "bg-black scale-125 border-black"
+                  ? "bg-black scale-110 md:scale-125 border-black"
                   : activeSection === "hero"
                     ? "bg-transparent border border-white"
                     : "bg-transparent border border-white"
@@ -143,9 +140,9 @@ export function PromptingIsAllYouNeed() {
                   })
                 }
               }}
-              className={`block w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`block w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                 activeSection === "contact"
-                  ? "bg-white scale-125 border-white"
+                  ? "bg-white scale-110 md:scale-125 border-white"
                   : activeSection === "about"
                     ? "bg-transparent border border-black"
                     : "bg-transparent border border-white"
